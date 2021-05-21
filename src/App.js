@@ -28,7 +28,7 @@ class App extends Component {
         const userRef = await handleUserProfile(userAuth);
         userRef.onSnapshot(snapshot => {
           this.setState({
-            currentUser:{
+            currentUser: {
               id: snapshot.id,
               ...snapshot.data()
             }
@@ -56,7 +56,7 @@ class App extends Component {
               <Homepage />
             </HomepageLayout>
           )} />
-          <Route exact path="/registration" render={() => (
+          <Route exact path="/registration" render={() => currentUser ? <Redirect to="/" /> : (
             <MainLayout currentUser={currentUser}>
               <Registration />
             </MainLayout>
