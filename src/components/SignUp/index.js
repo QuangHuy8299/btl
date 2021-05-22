@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { signUpUser, resetAllAuthForms } from './../../redux/User/user.actions';
-import { withRouter } from 'react-router-dom';
-import FormInput from '../froms/FromInput';
-
-import AuthWrapper from './../AuthWrapper';
-import Button from '../froms/Button';
+import { useHistory, Link } from 'react-router-dom';
+import { signUpUserStart } from './../../redux/User/user.actions';
 import './styles.scss';
 
+import AuthWrapper from './../AuthWrapper';
+import FormInput from './../froms/FromInput';
+import Button from './../froms/Button/index'
+
 const mapState = ({ user }) => ({
-  signUpSuccess: user.signUpSuccess,
-  signUpError: user.signUpError
-})
+  currentUser: user.currentUser,
+  userErr: user.userErr
+});
 
 const Signup = props => {
-  const { signUpSuccess, signUpError } = useSelector(mapState);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const { currentUser, userErr } = useSelector(mapState);
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,18 +24,19 @@ const Signup = props => {
   const [errors, setErrors] = useState([]);
 
   useEffect(() => {
-    if (signUpSuccess) {
+    if (currentUser) {
       reset();
-      dispatch(resetAllAuthForms());
-      props.history.push('/');
+      history.push('/');
     }
-  }, [signUpSuccess])
+
+  }, [currentUser]);
 
   useEffect(() => {
-    if (Array.isArray(signUpError) && signUpError.length > 0) {
-      setErrors(signUpError);
+    if (Array.isArray(userErr) && userErr.length > 0) {
+      setErrors(userErr);
     }
-  }, [signUpError])
+
+  }, [userErr]);
 
   const reset = () => {
     setDisplayName('');
@@ -42,22 +44,26 @@ const Signup = props => {
     setPassword('');
     setConfirmPassword('');
     setErrors([]);
-  }
+  };
+
   const handleFormSubmit = event => {
     event.preventDefault();
-    dispatch(signUpUser({
+    dispatch(signUpUserStart({
       displayName,
       email,
       password,
-      confirmPassword,
-    }))
+      confirmPassword
+    }));
   }
+
   const configAuthWrapper = {
     headline: 'Registration'
-  }
+  };
+
   return (
     <AuthWrapper {...configAuthWrapper}>
       <div className="formWrap">
+
         {errors.length > 0 && (
           <ul>
             {errors.map((err, index) => {
@@ -65,12 +71,13 @@ const Signup = props => {
                 <li key={index}>
                   {err}
                 </li>
-              )
+              );
             })}
           </ul>
-        )
-        }
+        )}
+
         <form onSubmit={handleFormSubmit}>
+
           <FormInput
             type="text"
             name="displayName"
@@ -78,6 +85,7 @@ const Signup = props => {
             placeholder="Full name"
             handleChange={e => setDisplayName(e.target.value)}
           />
+
           <FormInput
             type="email"
             name="email"
@@ -85,13 +93,15 @@ const Signup = props => {
             placeholder="Email"
             handleChange={e => setEmail(e.target.value)}
           />
+
           <FormInput
             type="password"
             name="password"
             value={password}
-            placeholder="password"
+            placeholder="Password"
             handleChange={e => setPassword(e.target.value)}
           />
+
           <FormInput
             type="password"
             name="confirmPassword"
@@ -99,13 +109,24 @@ const Signup = props => {
             placeholder="Confirm Password"
             handleChange={e => setConfirmPassword(e.target.value)}
           />
+
           <Button type="submit">
             Register
-            </Button>
+          </Button>
         </form>
+
+        <div className="links">
+          <Link to="/login">
+            LogIn
+          </Link>
+          {` | `}
+          <Link to="/recovery">
+            Reset Password
+            </Link>
+        </div>
       </div>
     </AuthWrapper>
-  )
-};
+  );
+}
 
-export default withRouter(Signup);
+export default Signup;

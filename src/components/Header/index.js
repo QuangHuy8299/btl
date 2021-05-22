@@ -1,5 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { signOutUserStart } from './../../redux/User/user.actions'
 import './styles.scss';
 import Logo from './../../Asset/logo.jpg';
 import { Link } from 'react-router-dom';
@@ -10,7 +11,11 @@ const mapState = ({ user }) => ({
 })
 
 const Header = props => {
+  const dispatch = useDispatch();
   const { currentUser } = useSelector(mapState);
+  const signOut = () => {
+    dispatch(signOutUserStart());
+  }
 
   return (
     <header className="header">
@@ -29,7 +34,7 @@ const Header = props => {
               </Link>
               </li>
               <li>
-                <span onClick={() => auth.signOut()}>
+                <span onClick={() => signOut()}>
                   LogOut
               </span>
               </li>
