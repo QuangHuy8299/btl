@@ -11,6 +11,9 @@ import HomepageLayout from './layouts/HomepageLayout'
 import Recovery from './pages/Recovery';
 import Dashboard from './pages/Dashboard';
 import WithAuth from './hoc/withAuth'
+import Admin from './pages/Admin';
+import WithAdminAuth from './hoc/withAdminAuth';
+import AdminToolbar from './components/AdminToolBar';
 
 const App = props => {
 
@@ -22,6 +25,7 @@ const App = props => {
 
   return (
     <div className="App">
+      <AdminToolbar />
       <Switch>
         <Route exact path="/" render={() => (
           <HomepageLayout>
@@ -50,6 +54,14 @@ const App = props => {
               <Dashboard />
             </MainLayout>
           </WithAuth>
+        )} />
+        <Route path="/admin" render={() => (
+          <WithAdminAuth>
+            <MainLayout>
+              <Admin />
+            </MainLayout>
+          </WithAdminAuth>
+
         )} />
       </Switch>
     </div>
