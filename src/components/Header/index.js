@@ -19,6 +19,11 @@ const Header = props => {
           {currentUser && (
             <ul>
               <li>
+                <Link to="/dashboard">
+                  My account
+              </Link>
+              </li>
+              <li>
                 <span onClick={() => auth.signOut()}>
                   LogOut
               </span>
@@ -50,7 +55,7 @@ Header.defaultProps = {
   currentUser: null
 }
 
-const mapStateToProps = ({user}) => ({
+const mapStateToProps = ({ user }) => ({
   currentUser: user.currentUser
 });
 
