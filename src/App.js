@@ -20,6 +20,7 @@ import Homepage from './pages/Homepage';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
 import Search from './pages/Search';
+import ProductDetails from './pages/ProductDetails';
 
 // layouts
 import AdminLayout from './layouts/AdminLayouts';
@@ -52,6 +53,11 @@ const App = props => {
         <Route path="/search/:filterType" render={() => (
           <MainLayout>
             <Search />
+          </MainLayout>
+        )} />
+        <Route path="/product/:productID" render={() => (
+          <MainLayout>
+            <ProductDetails />
           </MainLayout>
         )} />
         <Route path="/registration" render={() => (

@@ -5,6 +5,7 @@ import Button from './../../components/froms/Button';
 import FormSelect from './../../components/froms/FromSelect';
 import { useHistory, useParams } from 'react-router-dom';
 import LoadMore from './../LoadMore';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 const mapState = ({ productsData }) => ({
@@ -83,20 +84,24 @@ const ProductResults = ({ }) => {
 
       <div className="productResults">
         {data.map((product, pos) => {
-          const { productThumbnail, productName, productPrice } = product;
-          if (!productThumbnail || !productName ||
+          const { productThumbnail, productName, productPrice, documentID } = product;
+          if (!documentID || !productThumbnail || !productName ||
             typeof productPrice === 'undefined') return null;
 
           return (
             <div className="product">
               <div className="thumb">
-                <img src={productThumbnail} alt={productName} />
+                <Link to={`/product/${documentID}`}>
+                  <img src={productThumbnail} alt={productName} />
+                </Link>
               </div>
               <div className="details">
                 <ul>
                   <li>
                     <span className="name">
-                      {productName}
+                      <Link to={`/product/${documentID}`}>
+                        {productName}
+                      </Link>
                     </span>
                   </li>
                   <li>
