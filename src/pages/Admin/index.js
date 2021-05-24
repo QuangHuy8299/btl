@@ -5,6 +5,7 @@ import FormInput from './../../components/froms/FromInput';
 import FormSelect from './../../components/froms/FromSelect';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductStart, fetchProductsStart, deleteProductStart } from './../../redux/Products/products.actions';
+import LoadMore from './../../components/LoadMore';
 import './styles.scss'
 
 const mapState = ({ productsData }) => ({
@@ -19,6 +20,8 @@ const Admin = props => {
   const [productName, setProductName] = useState('');
   const [productThumbnail, setProductThumbnail] = useState('');
   const [productPrice, setProductPrice] = useState(0);
+
+  const { data, queryDoc, isLastPage } = products;
 
   useEffect(() => {
     dispatch(
@@ -47,13 +50,26 @@ const Admin = props => {
     resetForm();
   };
 
-  const resetForm = () =>{
+  const resetForm = () => {
     setHideModal(true);
     setProductCategory('men');
     setProductName('');
     setProductThumbnail('');
     setProductPrice(0)
-  }
+  };
+
+  const handleLoadMore = () => {
+    dispatch(
+      fetchProductsStart({
+        startAfterDoc: queryDoc,
+        persistProducts: data,
+      })
+    );
+  };
+
+  const configLoadMore = {
+    onLoadMoreEvt:handleLoadMore,
+  };
 
   return (
     <div className="admin">
@@ -75,7 +91,7 @@ const Admin = props => {
             <h2>
               Add new product
             </h2>
-            
+
             <FormSelect
               label="Category"
               options={[{
@@ -134,7 +150,7 @@ const Admin = props => {
               <td>
                 <table className="results" border="0" cellPadding="10" cellSpacing="0">
                   <tbody>
-                    {products.map((product, index) =>{
+                    {(Array.isArray(data) && data.length > 0) && data.map((product, index) => {
                       const {
                         productName,
                         productThumbnail,
@@ -144,7 +160,7 @@ const Admin = props => {
                       return (
                         <tr>
                           <td>
-                            <img className="thumb" src={productThumbnail}/>
+                            <img className="thumb" src={productThumbnail} />
                           </td>
                           <td>
                             {productName}
@@ -160,6 +176,28 @@ const Admin = props => {
                         </tr>
                       )
                     })}
+
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table border="0" cellPadding="10" cellSpacing="0">
+                  <tbody>
+                    <tr>
+                      <td>
+                      {!isLastPage && (
+                        <LoadMore {...configLoadMore}/>
+                      )}
+                        
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </td>

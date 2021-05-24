@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Button from './../../components/froms/Button';
 import FormSelect from './../../components/froms/FromSelect';
 import { useHistory, useParams } from 'react-router-dom';
+import LoadMore from './../LoadMore';
 import './styles.scss';
 
 const mapState = ({ productsData }) => ({
@@ -15,6 +16,8 @@ const ProductResults = ({ }) => {
   const history = useHistory();
   const { filterType } = useParams();
   const { products } = useSelector(mapState);
+
+  const { data, queryDoc, isLastPage } = products;
 
   useEffect(() => {
     dispatch(
@@ -29,8 +32,8 @@ const ProductResults = ({ }) => {
   const configAddToCartBtn = {
     type: 'button'
   }
-  if (!Array.isArray(products)) return null;
-  if (products.length < 1) {
+  if (!Array.isArray(data)) return null;
+  if (data.length < 1) {
     return (
       <div className="products">
         <p>
@@ -55,6 +58,21 @@ const ProductResults = ({ }) => {
     handleChange: handleFilter
   };
 
+  const handleLoadMore = () => {
+    dispatch(
+      fetchProductsStart({
+        filterType,
+        startAfterDoc: queryDoc,
+        persistProducts: data
+
+      })
+    )
+  }
+
+  const configLoadMore = {
+    onLoadMoreEvt: handleLoadMore,
+  }
+
   return (
     <div className="products">
       <h1>
@@ -64,16 +82,10 @@ const ProductResults = ({ }) => {
       <FormSelect {...configFilters} />
 
       <div className="productResults">
-        {products.map((product, pos) => {
+        {data.map((product, pos) => {
           const { productThumbnail, productName, productPrice } = product;
           if (!productThumbnail || !productName ||
             typeof productPrice === 'undefined') return null;
-
-          const configProduct = {
-            productThumbnail,
-            productName,
-            productPrice
-          };
 
           return (
             <div className="product">
@@ -105,6 +117,9 @@ const ProductResults = ({ }) => {
           )
         })}
       </div>
+      {!isLastPage && (
+        <LoadMore {...configLoadMore} />
+      )}
     </div>
   )
 }
