@@ -19,6 +19,7 @@ import Admin from './pages/Admin';
 import Homepage from './pages/Homepage';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
+import Search from './pages/Search';
 
 // layouts
 import AdminLayout from './layouts/AdminLayouts';
@@ -42,6 +43,11 @@ const App = props => {
           <HomepageLayout>
             <Homepage />
           </HomepageLayout>
+        )} />
+        <Route exact path="/search" render={() => (
+          <MainLayout>
+            <Search />
+          </MainLayout>
         )} />
         <Route exact path="/registration" render={() => (
           <MainLayout>

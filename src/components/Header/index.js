@@ -1,10 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOutUserStart } from './../../redux/User/user.actions'
 import './styles.scss';
 import Logo from './../../Asset/logo.jpg';
-import { Link } from 'react-router-dom';
-import { auth } from './../../firebase/utils'
 
 const mapState = ({ user }) => ({
   currentUser: user.currentUser
@@ -25,6 +24,20 @@ const Header = props => {
             <img src={Logo} alt="Simple Logo" />
           </Link>
         </div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/search">
+                Search
+              </Link>
+            </li>
+          </ul>
+        </nav>
         <div className="callToActions">
           {currentUser && (
             <ul>
