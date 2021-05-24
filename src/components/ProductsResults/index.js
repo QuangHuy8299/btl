@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { fetchProductsStart } from './../../redux/Products/products.actions';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from './../../components/froms/Button';
+import FormSelect from './../../components/froms/FromSelect';
+import { useHistory, useParams } from 'react-router-dom';
 import './styles.scss';
 
 const mapState = ({ productsData }) => ({
@@ -10,13 +12,20 @@ const mapState = ({ productsData }) => ({
 
 const ProductResults = ({ }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const { filterType } = useParams();
   const { products } = useSelector(mapState);
 
   useEffect(() => {
     dispatch(
-      fetchProductsStart()
+      fetchProductsStart({ filterType })
     )
-  }, [])
+  }, [filterType])
+
+  const handleFilter = (e) => {
+    const nextFilter = e.target.value;
+    history.push(`/search/${nextFilter}`);
+  };
   const configAddToCartBtn = {
     type: 'button'
   }
@@ -31,11 +40,29 @@ const ProductResults = ({ }) => {
     )
   }
 
+  const configFilters = {
+    defaultValue: filterType,
+    options: [{
+      name: 'Show all',
+      value: ''
+    }, {
+      name: 'Mens',
+      value: 'mens'
+    }, {
+      name: 'Womens',
+      value: 'womens'
+    }],
+    handleChange: handleFilter
+  };
+
   return (
     <div className="products">
       <h1>
         Browse Products
       </h1>
+
+      <FormSelect {...configFilters} />
+
       <div className="productResults">
         {products.map((product, pos) => {
           const { productThumbnail, productName, productPrice } = product;

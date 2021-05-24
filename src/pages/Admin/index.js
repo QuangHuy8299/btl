@@ -75,7 +75,7 @@ const Admin = props => {
             <h2>
               Add new product
             </h2>
-
+            
             <FormSelect
               label="Category"
               options={[{
