@@ -16,13 +16,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         })
       };
     case cartTypes.REDUCE_CART_ITEM:
-      return{
+      return {
         ...state,
         cartItems: handleReduceCartItem({
           prevCartItems: state.cartItems,
           cartItemToReduce: action.payload
         })
-      }
+      };
     case cartTypes.REMOVE_CART_ITEM:
       return {
         ...state,
@@ -30,7 +30,12 @@ const cartReducer = (state = INITIAL_STATE, action) => {
           prevCartItems: state.cartItems,
           cartItemToRemove: action.payload
         })
-      }
+      };
+    case cartTypes.CLEAR_CART:
+      return {
+        ...state,
+        ...INITIAL_STATE
+      };
     default:
       return state;
   }

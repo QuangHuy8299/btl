@@ -22,6 +22,7 @@ import Login from './pages/Login';
 import Search from './pages/Search';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
+import Payment from './pages/Payment';
 
 // layouts
 import AdminLayout from './layouts/AdminLayouts';
@@ -61,10 +62,17 @@ const App = props => {
             <ProductDetails />
           </MainLayout>
         )} />
-         <Route path="/cart" render={() => (
+        <Route path="/cart" render={() => (
           <MainLayout>
             <Cart />
           </MainLayout>
+        )} />
+        <Route path="/payment" render={() => (
+          <WithAuth>
+            <MainLayout>
+              <Payment />
+            </MainLayout>
+          </WithAuth>
         )} />
         <Route path="/registration" render={() => (
           <MainLayout>
@@ -95,12 +103,10 @@ const App = props => {
               <Admin />
             </AdminLayout>
           </WithAdminAuth>
-
         )} />
       </Switch>
     </div>
   );
 }
-
 
 export default App;
