@@ -25,6 +25,7 @@ const Product = (product) => {
     dispatch(
       addProduct(product)
     );
+    history.push('/cart');
   };
 
   return (

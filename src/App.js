@@ -21,6 +21,7 @@ import Registration from './pages/Registration';
 import Login from './pages/Login';
 import Search from './pages/Search';
 import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart';
 
 // layouts
 import AdminLayout from './layouts/AdminLayouts';
@@ -58,6 +59,11 @@ const App = props => {
         <Route path="/product/:productID" render={() => (
           <MainLayout>
             <ProductDetails />
+          </MainLayout>
+        )} />
+         <Route path="/cart" render={() => (
+          <MainLayout>
+            <Cart />
           </MainLayout>
         )} />
         <Route path="/registration" render={() => (
