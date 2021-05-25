@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductStart, setProduct } from './../../redux/Products/products.actions';
 import Button from './../froms/Button';
+import { addProduct } from './../../redux/Cart/cart.actions';
 import './styles.scss';
 
 const mapState = state => ({
@@ -25,12 +26,19 @@ const ProductCard = ({ }) => {
     dispatch(
       fetchProductStart(productID)
     )
-    return() => {
+    return () => {
       dispatch(
         setProduct({})
       )
     }
   }, []);
+
+  const handleAddToCart = (product) => {
+    if (!dispatch) return;
+    dispatch(
+      addProduct(product)
+    )
+  }
 
   const configAddToCartBtn = {
     type: 'button'
@@ -39,7 +47,7 @@ const ProductCard = ({ }) => {
   return (
     <div className="productCard">
       <div className="hero">
-        <img src={productThumbnail}/>
+        <img src={productThumbnail} />
       </div>
       <div className="productDetails">
         <ul>
@@ -55,13 +63,13 @@ const ProductCard = ({ }) => {
           </li>
           <li>
             <div className="addToCart">
-              <Button {...configAddToCartBtn}>
+              <Button {...configAddToCartBtn} onClick={() => handleAddToCart(product)}>
                 Add to cart
               </Button>
             </div>
           </li>
           <li>
-            <span dangerouslySetInnerHTML={{__html: productDesc}} />
+            <span dangerouslySetInnerHTML={{ __html: productDesc }} />
           </li>
         </ul>
       </div>

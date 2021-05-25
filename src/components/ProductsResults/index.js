@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { fetchProductsStart } from './../../redux/Products/products.actions';
 import { useSelector, useDispatch } from 'react-redux';
-import Button from './../../components/froms/Button';
 import FormSelect from './../../components/froms/FromSelect';
 import { useHistory, useParams } from 'react-router-dom';
 import LoadMore from './../LoadMore';
-import { Link } from 'react-router-dom';
+import Product from './Product'
 import './styles.scss';
 
 const mapState = ({ productsData }) => ({
@@ -24,15 +23,13 @@ const ProductResults = ({ }) => {
     dispatch(
       fetchProductsStart({ filterType })
     )
-  }, [filterType])
+  }, [filterType]);
 
   const handleFilter = (e) => {
     const nextFilter = e.target.value;
     history.push(`/search/${nextFilter}`);
   };
-  const configAddToCartBtn = {
-    type: 'button'
-  }
+
   if (!Array.isArray(data)) return null;
   if (data.length < 1) {
     return (
@@ -41,7 +38,7 @@ const ProductResults = ({ }) => {
           No search results.
         </p>
       </div>
-    )
+    );
   }
 
   const configFilters = {
@@ -65,17 +62,17 @@ const ProductResults = ({ }) => {
         filterType,
         startAfterDoc: queryDoc,
         persistProducts: data
-
       })
     )
-  }
+  };
 
   const configLoadMore = {
     onLoadMoreEvt: handleLoadMore,
-  }
+  };
 
   return (
     <div className="products">
+
       <h1>
         Browse Products
       </h1>
@@ -84,49 +81,26 @@ const ProductResults = ({ }) => {
 
       <div className="productResults">
         {data.map((product, pos) => {
-          const { productThumbnail, productName, productPrice, documentID } = product;
-          if (!documentID || !productThumbnail || !productName ||
+          const { productThumbnail, productName, productPrice } = product;
+          if (!productThumbnail || !productName ||
             typeof productPrice === 'undefined') return null;
 
+          const configProduct = {
+            ...product
+          };
+
           return (
-            <div className="product">
-              <div className="thumb">
-                <Link to={`/product/${documentID}`}>
-                  <img src={productThumbnail} alt={productName} />
-                </Link>
-              </div>
-              <div className="details">
-                <ul>
-                  <li>
-                    <span className="name">
-                      <Link to={`/product/${documentID}`}>
-                        {productName}
-                      </Link>
-                    </span>
-                  </li>
-                  <li>
-                    <span className="price">
-                      ${productPrice}
-                    </span>
-                  </li>
-                  <li>
-                    <div className="addToCart">
-                      <Button {...configAddToCartBtn}>
-                        Add to cart
-              </Button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )
+            <Product key={pos} {...configProduct} />
+          );
         })}
       </div>
+
       {!isLastPage && (
         <LoadMore {...configLoadMore} />
       )}
+
     </div>
-  )
-}
+  );
+};
 
 export default ProductResults;
