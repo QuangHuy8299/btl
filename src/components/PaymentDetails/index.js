@@ -4,11 +4,11 @@ import FormInput from './../froms/FromInput';
 import Button from './../froms/Button';
 import { CountryDropdown } from 'react-country-region-selector';
 import { apiInstance } from './../../Utils';
-import { selectCartTotal, selectCartItemsCount } from './../../redux/Cart/cart.selector';
+import { selectCartTotal, selectCartItemsCount, selectCartItems } from './../../redux/Cart/cart.selector';
 import { createStructuredSelector } from 'reselect';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearCart } from './../../redux/Cart/cart.actions';
 import { useHistory } from 'react-router-dom';
+import { saveOrderHistory } from './../../redux/Orders/orders.actions';
 import './styles.scss';
 
 const initialAddressState = {
@@ -22,14 +22,15 @@ const initialAddressState = {
 
 const mapState = createStructuredSelector({
   total: selectCartTotal,
-  itemCount: selectCartItemsCount
+  itemCount: selectCartItemsCount,
+  cartItems: selectCartItems,
 });
 
 const PaymentDetails = () => {
   const stripe = useStripe();
   const elements = useElements();
   const history = useHistory();
-  const { total, itemCount } = useSelector(mapState);
+  const { total, itemCount, cartItems } = useSelector(mapState);
   const dispatch = useDispatch();
   const [billingAddress, setBillingAddress] = useState({ ...initialAddressState });
   const [shippingAddress, setShippingAddress] = useState({ ...initialAddressState });
@@ -38,7 +39,7 @@ const PaymentDetails = () => {
 
   useEffect(() => {
     if (itemCount < 1) {
-      history.push('/');
+      history.push('/dashboard');
     }
 
   }, [itemCount]);
@@ -99,9 +100,26 @@ const PaymentDetails = () => {
           payment_method: paymentMethod.id
         })
         .then(({ paymentIntent }) => {
+
+          const configOrder = {
+            orderTotal: total,
+            orderItems: cartItems.map(item => {
+              const { documentID, productThumbnail, productName,
+                productPrice, quantity } = item;
+
+              return {
+                documentID,
+                productThumbnail,
+                productName,
+                productPrice,
+                quantity
+              };
+            })
+          }
+
           dispatch(
-            clearCart()
-          )
+            saveOrderHistory(configOrder)
+          );
         });
 
       })

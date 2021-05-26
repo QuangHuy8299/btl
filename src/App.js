@@ -23,20 +23,21 @@ import Search from './pages/Search';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Payment from './pages/Payment';
+import Order from './pages/Order';
 
 // layouts
 import AdminLayout from './layouts/AdminLayouts';
 import MainLayout from './layouts/MainLayout';
 import HomepageLayout from './layouts/HomepageLayout';
-import DashBoardLayout from './layouts/DashBoardLayout';
+import DashboardLayout from './layouts/DashBoardLayout';
 
 const App = props => {
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkUserSession());
-  }, [])
+
+  }, []);
 
   return (
     <div className="App">
@@ -46,7 +47,8 @@ const App = props => {
           <HomepageLayout>
             <Homepage />
           </HomepageLayout>
-        )} />
+        )}
+        />
         <Route exact path="/search" render={() => (
           <MainLayout>
             <Search />
@@ -92,9 +94,16 @@ const App = props => {
         )} />
         <Route path="/dashboard" render={() => (
           <WithAuth>
-            <DashBoardLayout>
+            <DashboardLayout>
               <Dashboard />
-            </DashBoardLayout>
+            </DashboardLayout>
+          </WithAuth>
+        )} />
+        <Route path="/order/:orderID" render={() => (
+          <WithAuth>
+            <DashboardLayout>
+              <Order />
+            </DashboardLayout>
           </WithAuth>
         )} />
         <Route path="/admin" render={() => (
