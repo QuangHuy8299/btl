@@ -27,6 +27,16 @@ const AdminLayout = props => {
                 </Link>
               </li>
               <li>
+                <Link to="/product-admin">
+                  Product
+                </Link>
+              </li>
+              <li>
+                <Link to="/categories-admin">
+                  Category
+                </Link>
+              </li>
+              <li>
                 <span className="signOut" onClick={() => signOut()}>
                   Sign Out
                 </span>

@@ -6,12 +6,14 @@ import userReducer from './User/user.reducer';
 import productsReducer from './Products/products.reducer';
 import cartReducer from './Cart/cart.reducer';
 import ordersReducer from './Orders/orders.reducer';
+import categoriesReducer from './Categories/categories.reducer';
 
 export const rootReducer = combineReducers({
   user: userReducer,
   productsData: productsReducer,
   cartData: cartReducer,
   ordersData: ordersReducer,
+  categoriesData: categoriesReducer,
 });
 
 const configStorage = {

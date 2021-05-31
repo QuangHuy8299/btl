@@ -24,6 +24,8 @@ import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Payment from './pages/Payment';
 import Order from './pages/Order';
+import ProductAdmin from './pages/Admin/ProductAdmin';
+import CategoriesAdmin from './pages/Admin/CategoriesAdmin';
 
 // layouts
 import AdminLayout from './layouts/AdminLayouts';
@@ -110,6 +112,20 @@ const App = props => {
           <WithAdminAuth>
             <AdminLayout>
               <Admin />
+            </AdminLayout>
+          </WithAdminAuth>
+        )} />
+        <Route path="/product-admin" render={() => (
+          <WithAdminAuth>
+            <AdminLayout>
+              <ProductAdmin />
+            </AdminLayout>
+          </WithAdminAuth>
+        )} />
+        <Route path="/categories-admin" render={() => (
+          <WithAdminAuth>
+            <AdminLayout>
+              <CategoriesAdmin />
             </AdminLayout>
           </WithAdminAuth>
         )} />
