@@ -1,18 +1,5 @@
-html {
-  font-size: 10px;
-}
-
 html,
 body {
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body,
-#root,
-.App,
-.fullHeight {
   height: 100%;
 }
 
@@ -25,104 +12,169 @@ body,
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.8rem;
+  line-height: 1.74;
+  font-size: 16px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 1;
-}
-
-h1 {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0 auto 2rem;
-  font-size: 3rem;
-  line-height: 3.2rem;
+  visibility: visible;
+  font-family: "Roboto", sans-serif;
   color: #000000;
-  text-align: left;
-  font-weight: 400;
-  text-transform: uppercase;
-  border-bottom: #d3d3d3;
+  position: relative;
+  background-color: #ffffff;
+  margin: 0;
 }
 
-h2 {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0 auto 2rem;
-  font-size: 2.5rem;
-  line-height: 2.7rem;
-  color: #000000;
-  text-align: left;
-  font-weight: 400;
-  text-transform: uppercase;
-  border-bottom: #d3d3d3;
+.bg-white {
+  background: #ffffff !important;
 }
 
-a {
+a,
+button,
+img,
+input,
+span {
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+a,
+button {
+  color: inherit;
+  display: inline-block;
+  line-height: inherit;
   text-decoration: none;
   cursor: pointer;
 }
 
-a,
+ul {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+
 a:hover {
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  text-decoration: none;
+  color: #dcb14a;
 }
 
-.main {
+*:focus {
+  outline: none !important;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
   width: 100%;
-  height: calc(100% - 6.5rem);
-  max-width: 1450px;
-  padding: 0 10px;
-  margin: 0 auto;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
 }
 
-.controlPanel {
+.fade {
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #111;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.41;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+
+.section-space--mt_60 {
+  margin-top: 60px;
+}
+
+.font-weight--reguler {
+  font-weight: 500;
+}
+
+.font-lg-p {
+  font-size: 18px;
+}
+
+.text-color-primary {
+  color: #dcb14a;
+}
+
+input[type="checkbox"] {
   position: relative;
-  display: inline-block;
+  background: 0 0;
+  border-width: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 0 10px 0 3px;
+  cursor: pointer;
+}
+
+.btn--full {
   width: 100%;
-  min-height: 100%;
-  padding: 3rem 0 6rem 25rem;
-  border-bottom: 1px solid #d3d3d3;
-
-  .sidebar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 25rem;
-    height: 100%;
-    z-index: 1;
-    border-right: 1px solid #d3d3d3;
-  }
-
-  .content {
-    padding: 0 10px;
-  }
 }
 
-.adminLayout {
-  height: calc(100% - 6.5rem - 5.8rem - 3.6rem);
+.btn--black {
+  background: #000000;
+  color: #ffffff;
 }
 
-.dashboardLayout {
-  height: calc(100% - 6.5rem - 5.8rem);
+.btn {
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 500;
+  height: 50px;
+  line-height: 38px;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border: transparent;
 }
 
-@media only screen and (max-width: 980px) {
-  html {
-    font-size: 9px;
-  }
+::selection {
+  color: #ffffff;
+  background-color: #dcb14a;
+}
 
-  .controlPanel {
-    padding: 0 10px;
+.site-wrapper-reveal {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+}
 
-    .sidebar {
-      position: relative;
-      width: 100%;
-      border: none;
-      margin-bottom: 2.5rem;
-    }
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  h1 {
+    font-size: 46px;
   }
 }

@@ -1,0 +1,15 @@
+.tab-content .tab-pane.active {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+  overflow: visible;
+}
+
+.tab-content .tab-pane {
+  display: block;
+  overflow: hidden;
+  height: 0;
+  visibility: hidden;
+  max-width: 100%;
+  opacity: 0;
+}

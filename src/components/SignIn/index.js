@@ -72,11 +72,9 @@ const SignIn = props => {
           </Button>
 
           <div className="socialSignin">
-            <div className="row">
-              <Button onClick={handleGoogleSignIn}>
-                Sign in with Google
+            <Button onClick={handleGoogleSignIn}>
+              Sign in with Google
               </Button>
-            </div>
           </div>
 
           <div className="links">

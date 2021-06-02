@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import './default.scss';
+import './container.scss';
+import './_hero.scss';
 
 import { Switch, Route } from 'react-router-dom';
 import { checkUserSession } from './redux/User/user.actions';

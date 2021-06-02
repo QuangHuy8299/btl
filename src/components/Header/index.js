@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { signOutUserStart } from './../../redux/User/user.actions';
 import { selectCartItemsCount } from './../../redux/Cart/cart.selector';
 import './styles.scss';
 import Logo from './../../Asset/logo.jpg';
@@ -12,70 +11,80 @@ const mapState = (state) => ({
 })
 
 const Header = props => {
-  const dispatch = useDispatch();
   const { currentUser, totalNumCartItems } = useSelector(mapState);
-  const signOut = () => {
-    dispatch(signOutUserStart());
-  }
-
-  return (
-    <header className="header">
-      <div className="warp">
-        <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Simple Logo" />
-          </Link>
-        </div>
-        <nav>
-          <ul>
-            <li>
+  const dispatch = useDispatch();
+  
+  return [
+    <header className="header-area header_absolute header_height-90 header-sticky is-sticky">
+      <div className="container-fluid container-fluid--cp-100">
+        <div className="row align-items-center">
+          <div className="col-lg-3 col-lg-3 col-6">
+            <div className="logo text-left">
               <Link to="/">
-                Home
+                <img src={Logo} alt="Simple Logo" />
               </Link>
-            </li>
-            <li>
-              <Link to="/search">
-                Search
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <div className="callToActions">
-          <ul>
-            <li>
-              <Link to="/cart">
-                Your cart ({totalNumCartItems})
-            </Link>
-            </li>
-            {currentUser && [
-              <li>
-                <Link to="/dashboard">
-                  My account
+            </div>
+          </div>
+          <div className="col-lg-6 col-lg-6  d-none d-lg-block">
+            <div className="header__navigation d-none d-lg-block">
+              <nav className="navigation-menu">
+                <ul className="justify-content-center">
+                  <li className="has-children has-children--multilevel-submenu">
+                    <Link to="/">
+                      <span>Home</span>
+                    </Link>
+                  </li>
+                  <li className="has-children has-children--multilevel-submenu">
+                    <Link to="/search">
+                      <span>Product</span>
+                    </Link>
+                  </li>
+                  <li className="has-children has-children--multilevel-submenu">
+                    <Link to="/introduce">
+                      <span>Introduce</span>
+                    </Link>
+                  </li>
+                  <li className="has-children has-children--multilevel-submenu">
+                    <Link to="/blog">
+                      <span>Blog</span>
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div className="col-lg-3 col-lg-3 col-6">
+            <div className="header-right-side text-right">
+              <div className="header-right-items d-none d-md-block">
+                {currentUser && [
+                  <Link to="/dashboard" className="header-cart">
+                    <i className="icon-user"></i>
+                  </Link>
+                ]}
+                {!currentUser && [
+                  <Link to="/login" className="header-cart">
+                    <i className="icon-user"></i>
+                  </Link>
+                ]}
+              </div>
+              <div className="header-right-items d-none d-md-block">
+                <Link to="/wishList" className="header-cart">
+                  <i className="icon-heart"></i>
+                  <span className="item-counter">3</span>
                 </Link>
-              </li>,
-              <li>
-                <span onClick={() => signOut()}>
-                  LogOut
-                </span>
-              </li>
-            ]}
-            {!currentUser && [
-              <li>
-                <Link to="/registration">
-                  Register
-              </Link>
-              </li>,
-              <li>
-                <Link to="/login">
-                  Login
-              </Link>
-              </li>
-            ]}
-          </ul>
+              </div>
+              <div className="header-right-items">
+                <Link to="/cart" className=" header-cart minicart-btn toolbar-btn header-icon">
+                  <i className="icon-bag2"></i>
+                  <span className="item-counter">{totalNumCartItems}</span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
-  )
+  ]
 }
 
 Header.defaultProps = {

@@ -1,9 +1,22 @@
 .authWrapper {
-  display: block;
+  position: relative;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   width: 100%;
-  max-width: 40rem;
-  border: 1px solid black;
-  margin: 4rem auto 6rem;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+  margin: auto;
 
   .wrap {
     padding: 10px;
