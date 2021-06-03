@@ -220,6 +220,13 @@ input[type="radio"] {
   padding: 0;
 }
 
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+
 button,
 input {
   overflow: visible;
@@ -314,18 +321,15 @@ textarea {
   .my-lg-5 {
     margin-top: 3rem !important;
   }
-  .container,
-  .container-lg,
-  .container-md,
-  .container-sm {
-    max-width: 960px;
-  }
 }
 
 @media (min-width: 768px) {
   .d-md-block {
     display: block !important;
   }
+  .text-md-left {
+    text-align: left !important;
+}
 }
 
 @media (min-width: 576px) {

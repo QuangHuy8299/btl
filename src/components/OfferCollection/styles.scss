@@ -45,3 +45,8 @@
   padding: 0 32px;
   height: 40px;
 }
+
+.btn--black:hover, .btn--black:focus {
+  background: #222;
+  color: #ffffff;
+}

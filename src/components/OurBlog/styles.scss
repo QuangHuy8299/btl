@@ -1,0 +1,120 @@
+.section-title--center::after {
+  position: absolute;
+  content: "";
+  left: 50%;
+  bottom: 0;
+  background: #dcb14a;
+  height: 4px;
+  width: 70px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.single-blog-item {
+  overflow: hidden;
+}
+
+.single-blog-item .blog-thumbnail-box {
+  position: relative;
+}
+
+.single-blog-item:hover {
+  .blog-thumbnail-box {
+    .btn-blog {
+      transform: translateX(0);
+      opacity: 1;
+      &::after {
+        left: 0;
+      }
+    }
+  }
+  .blog-contents {
+    .blog-title {
+      &::after {
+        width: 70px;
+        background: #dcb14a;
+      }
+    }
+  }
+  .blog-contents {
+    .blog-title-two {
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.single-blog-item .blog-thumbnail-box .btn-blog {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 5px 14px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.single-blog-item .blog-contents {
+  margin-top: 25px;
+}
+
+.single-blog-item .blog-contents .blog-title {
+  font-size: 20px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.single-blog-item .blog-contents .blog-title a {
+  color: #000000;
+}
+
+.single-blog-item .blog-contents .blog-title::before,
+.single-blog-item .blog-contents .blog-title::after {
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  content: "";
+  height: 1.5px;
+  width: 70px;
+  background: rgba(180, 180, 180, 0.7);
+  -webkit-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.single-blog-item:hover .blog-contents .blog-title::after {
+  width: 70px;
+  background: #dcb14a;
+}
+
+.single-blog-item .blog-contents .blog-title::after {
+  width: 0px;
+}
+
+.single-blog-item .meta-tag-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.single-blog-item .meta-tag-box .meta {
+  position: relative;
+}
+
+.single-blog-item .meta-tag-box .meta::after {
+  color: #999;
+  padding: 0 8px;
+  content: "/";
+}

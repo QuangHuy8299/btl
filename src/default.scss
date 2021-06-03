@@ -80,7 +80,7 @@ a:hover {
   transition: opacity 0.15s linear;
 }
 
-.text-red{
+.text-red {
   color: red;
 }
 
@@ -134,6 +134,10 @@ h6 {
   margin-top: 25px;
 }
 
+.mb-20 {
+  margin-bottom: 20px;
+}
+
 .mb-30 {
   margin-bottom: 30px;
 }
@@ -141,12 +145,25 @@ h6 {
   margin-top: 30px;
 }
 
+.section-space--mt_40 {
+  margin-top: 40px;
+}
+
 .section-space--mt_60 {
   margin-top: 60px;
 }
 
+.section-space--ptb_90 {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
 .section-space--pt_120 {
   padding-top: 120px;
+}
+
+.section-space--pb_30 {
+  padding-bottom: 30px;
 }
 
 .font-weight--reguler {
@@ -221,6 +238,29 @@ input[type="checkbox"] {
   background: #dcb14a;
   height: 4px;
   width: 70px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus,
+select:focus,
+select:focus,
+textarea:focus {
+  color: #dcb14a;
+  border-color: #dcb14a;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
