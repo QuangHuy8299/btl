@@ -78,6 +78,12 @@
   color: #dcb14a;
 }
 
+.bg-img {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .single-hero-slider-five .hero-content-wrap {
     margin-top: -156px;

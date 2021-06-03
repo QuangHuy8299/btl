@@ -14,72 +14,68 @@ const Sliders = props => {
     slidesToScroll: 1
   }
   return (
-    <div className="main-wrapper">
-      <div className="site-wrapper-reveal">
-        <Slider {...settings}>
-          <div className="single-hero-slider-five background-slider-1">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="hero-content-wrap">
-                    <div className="hero-text-five mt-lg-5">
-                      <h6 className="mb-30 small-title border-h6">Chair<br />Collection<br />2021</h6>
-                      <h1>Chanel Chair <br /> High Quality Walnut</h1>
-                      <div className="button-box section-space--mt_60">
-                        <Link to="/search" className="text-btn-normal font-weight--reguler font-lg-p">
-                          Discover Collection
-                          <i className="icon-arrow-right"></i>
-                        </Link>
-                      </div>
-                    </div>
+    <Slider {...settings}>
+      <div className="single-hero-slider-five background-slider-1">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="hero-content-wrap">
+                <div className="hero-text-five mt-lg-5">
+                  <h6 className="mb-30 small-title border-h6">Chair<br />Collection<br />2021</h6>
+                  <h1>Chanel Chair <br /> High Quality Walnut</h1>
+                  <div className="button-box section-space--mt_60">
+                    <Link to="/search" className="text-btn-normal font-weight--reguler font-lg-p">
+                      Discover Collection
+                      <i className="icon-arrow-right"></i>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="single-hero-slider-five background-slider-2" >
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="hero-content-wrap">
-                    <div className="hero-text-five mt-lg-5">
-                      <h6 className="mb-30 small-title border-h6">Chair<br />Collection<br />2021</h6>
-                      <h1>Chanel Chair <br /> High Quality Walnut</h1>
-                      <div className="button-box section-space--mt_60">
-                        <Link to="/search" className="text-btn-normal font-weight--reguler font-lg-p">
-                          Discover Collection
-                          <i className="icon-arrow-right"></i>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="single-hero-slider-five background-slider-3" >
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="hero-content-wrap">
-                    <div className="hero-text-five mt-lg-5">
-                      <h6 className="mb-30 small-title border-h6">Chair<br />Collection<br />2021</h6>
-                      <h1>Chanel Chair <br /> High Quality Walnut</h1>
-                      <div className="button-box section-space--mt_60">
-                        <Link to="/search" className="text-btn-normal font-weight--reguler font-lg-p">
-                          Discover Collection
-                          <i className="icon-arrow-right"></i>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Slider>
+        </div>
       </div>
-    </div>
+      <div className="single-hero-slider-five background-slider-2" >
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="hero-content-wrap">
+                <div className="hero-text-five mt-lg-5">
+                  <h6 className="mb-30 small-title border-h6">Chair<br />Collection<br />2021</h6>
+                  <h1>Chanel Chair <br /> High Quality Walnut</h1>
+                  <div className="button-box section-space--mt_60">
+                    <Link to="/search" className="text-btn-normal font-weight--reguler font-lg-p">
+                      Discover Collection
+                      <i className="icon-arrow-right"></i>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="single-hero-slider-five background-slider-3" >
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="hero-content-wrap">
+                <div className="hero-text-five mt-lg-5">
+                  <h6 className="mb-30 small-title border-h6">Chair<br />Collection<br />2021</h6>
+                  <h1>Chanel Chair <br /> High Quality Walnut</h1>
+                  <div className="button-box section-space--mt_60">
+                    <Link to="/search" className="text-btn-normal font-weight--reguler font-lg-p">
+                      Discover Collection
+                      <i className="icon-arrow-right"></i>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Slider>
   );
 };
 

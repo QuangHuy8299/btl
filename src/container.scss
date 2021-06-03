@@ -1,7 +1,15 @@
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 .container-fluid--cp-100 {
   padding: 0 100px;
 }
 
+.text-center {
+  text-align: center !important;
+}
 .container {
   max-width: 1170px;
 }
@@ -252,6 +260,18 @@ textarea {
   height: auto;
 }
 
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 @media only screen and (min-width: 1200px) and (max-width: 1499px) {
   .container-fluid--cp-100 {
     padding: 0 50px;
@@ -306,9 +326,7 @@ textarea {
   .d-md-block {
     display: block !important;
   }
-  
 }
 
 @media (min-width: 576px) {
-  
 }

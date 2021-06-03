@@ -1,0 +1,47 @@
+.countdown-img {
+  background-image: url(./../../Asset/h1-countdown.jpg);
+}
+
+.countdown-deals {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: start;
+}
+
+.countdown-deals.counter-style--one .single-countdown {
+  display: inline-block;
+  margin-right: 80px;
+  position: relative;
+}
+
+.countdown-deals.counter-style--one .single-countdown .single-countdown__time {
+  display: block;
+  font-family: "Prata", serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  color: #000000;
+  margin-bottom: 0px;
+}
+
+.countdown-deals.counter-style--one .single-countdown .single-countdown__text {
+  margin-top: 10px;
+  display: block;
+  color: #000000;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.btn--black {
+  background: #000000;
+  color: #ffffff;
+}
+
+.btn--md {
+  line-height: 38px;
+  padding: 0 32px;
+  height: 40px;
+}

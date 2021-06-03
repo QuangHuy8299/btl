@@ -80,8 +80,26 @@ a:hover {
   transition: opacity 0.15s linear;
 }
 
+.text-red{
+  color: red;
+}
+
+.section-title--one::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: #dcb14a;
+  height: 4px;
+  width: 70px;
+}
+
 h6 {
   font-size: 18px;
+}
+
+h2 {
+  font-size: 36px;
 }
 
 h1,
@@ -133,6 +151,11 @@ h6 {
 
 .font-weight--reguler {
   font-weight: 500;
+}
+
+.section-space--ptb_120 {
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 
 .font-lg-p {
