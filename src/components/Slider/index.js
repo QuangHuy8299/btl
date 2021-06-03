@@ -3,13 +3,12 @@ import './styles.scss';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 import Background1 from './../../Asset/home-default-1.jpg'
-//import "~slick-carousel/slick/slick.css"; 
-//import "~slick-carousel/slick/slick-theme.css";
 
 const Sliders = props => {
   const settings = {
     dots: true,
     infinite: true,
+    fade: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1

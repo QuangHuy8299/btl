@@ -1,0 +1,39 @@
+.featuted-product-one .product-thumbnail a {
+  display: block;
+}
+
+.btn--border_1 {
+  border: 1px solid #222;
+}
+
+.btn--border_1:hover {
+  border: 1px solid #222;
+  background: #222;
+  color: #ffffff;
+}
+
+.btn--md {
+  line-height: 38px;
+  padding: 0 32px;
+  height: 40px;
+}
+
+.icon-arrow-right:before {
+  content: "\e944";
+}
+
+.btn {
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 38px;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.hover-zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5);
+}

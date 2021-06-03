@@ -96,6 +96,14 @@ h6 {
   line-height: 1.41;
 }
 
+.sub-heading {
+  font-size: 14px;
+}
+
+.sub-heading {
+  color: #999;
+}
+
 .mt-10 {
   margin-top: 10px;
 }
@@ -117,6 +125,10 @@ h6 {
 
 .section-space--mt_60 {
   margin-top: 60px;
+}
+
+.section-space--pt_120 {
+  padding-top: 120px;
 }
 
 .font-weight--reguler {
@@ -171,6 +183,21 @@ input[type="checkbox"] {
   position: relative;
   z-index: 2;
   background: #ffffff;
+}
+
+.section-title--one {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-title--one::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: #dcb14a;
+  height: 4px;
+  width: 70px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {

@@ -8,11 +8,10 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   position: relative;
-  margin-top: -256px;
 }
 
 .single-hero-slider-five {
-  height: 1100px;
+  height: 800px;
   background: #f1f1f1;
   display: -webkit-box !important;
   display: -webkit-flex !important;
@@ -60,6 +59,23 @@
   color: #999999;
   font-size: 16px;
   font-weight: 400;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #dcb14a;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
