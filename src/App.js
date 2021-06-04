@@ -34,6 +34,7 @@ import AdminLayout from './layouts/AdminLayouts';
 import MainLayout from './layouts/MainLayout';
 import HomepageLayout from './layouts/HomepageLayout';
 import DashboardLayout from './layouts/DashBoardLayout';
+import AboutUS from './pages/AboutUs';
 
 const App = props => {
   const dispatch = useDispatch();
@@ -61,6 +62,11 @@ const App = props => {
         <Route path="/search/:filterType" render={() => (
           <MainLayout>
             <Search />
+          </MainLayout>
+        )} />
+        <Route exact path="/about_us" render={() => (
+          <MainLayout>
+            <AboutUS />
           </MainLayout>
         )} />
         <Route path="/product/:productID" render={() => (

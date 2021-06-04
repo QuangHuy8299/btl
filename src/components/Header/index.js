@@ -40,8 +40,8 @@ const Header = props => {
                     </Link>
                   </li>
                   <li className="has-children has-children--multilevel-submenu">
-                    <Link to="/introduce">
-                      <span>Introduce</span>
+                    <Link to="/about_us">
+                      <span>About Us</span>
                     </Link>
                   </li>
                   <li className="has-children has-children--multilevel-submenu">
