@@ -8,9 +8,7 @@ const MainLayout = props => {
       <div className="header-area header-area--default bg-white">
         <Header {...props} />
       </div>
-      <div className="main">
-        {props.children}
-      </div>
+      {props.children}
       <Footer />
     </div>
   );

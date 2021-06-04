@@ -279,6 +279,19 @@ textarea {
   margin-left: auto;
 }
 
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @media only screen and (min-width: 1200px) and (max-width: 1499px) {
   .container-fluid--cp-100 {
     padding: 0 50px;
@@ -329,8 +342,11 @@ textarea {
   }
   .text-md-left {
     text-align: left !important;
-}
+  }
 }
 
 @media (min-width: 576px) {
+  .text-sm-left {
+    text-align: left !important;
+  }
 }
