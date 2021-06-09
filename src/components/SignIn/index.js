@@ -5,7 +5,6 @@ import { emailSignInStart, googleSignInStart } from './../../redux/User/user.act
 
 import './styles.scss';
 
-import AuthWrapper from './../AuthWrapper';
 import FormInput from './../froms/FromInput';
 import Button from './../froms/Button/index'
 
@@ -42,9 +41,6 @@ const SignIn = props => {
     dispatch(googleSignInStart());
   }
 
-  const configAuthWrapper = {
-    headline: 'LogIn'
-  };
 
   return [
     <div className="breadcrumb-area">
@@ -82,16 +78,38 @@ const SignIn = props => {
                   <div className="helendo-tabs">
                     <ul className="nav" role="tablist">
                       <li className="tab__item nav-item active">
-                        <Link to="/login" className="nav-link active">
-                          Login
-                        </Link>
+                        <Link to="/login" className="nav-link active" data-toggle="tab" href="#tab_list_06" role="tab" aria-selected="true">Login</Link>
                       </li>
-                      <li className="tab__item nav-item active">
-                        <Link to="/registration" className="nav-link active">
-                          Our Register
-                        </Link>
+                      <li className="tab__item nav-item">
+                        <Link to="/registration" className="nav-link" data-toggle="tab" href="#tab_list_07" role="tab" aria-selected="false">Our Register</Link>
                       </li>
+
                     </ul>
+                  </div>
+                  <div className="tab-content content-modal-box">
+                    <div className="tab-pane fade active show" id="tab_list_06" role="tabpanel">
+                      <form action="#" className="account-form-box"  onSubmit={handleSubmit}>
+                        <h6>Login your account</h6>
+                        <div className="single-input">
+                          <FormInput type="text" placeholder="Email" value={email} handleChange={e => setEmail(e.target.value)} />
+                        </div>
+                        <div className="single-input">
+                          <FormInput type="password" placeholder="Password" value={password} handleChange={e => setPassword(e.target.value)}/>
+                        </div>
+                        <div className="checkbox-wrap mt-10">
+                          <label className="label-for-checkbox inline mt-15">
+                            <input className="input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span>Remember me</span>
+                          </label>
+                          <Link to="/recovery" className=" mt-10">Lost your password?</Link>
+                        </div>
+                        <div className="button-box mt-25">
+                          <Button type="submit" className="btn btn--full btn--black">Log in</Button>
+                        </div>
+                        <div className="button-box mt-25">
+                          <Button type="submit" className="btn btn--full btn--black" onClick={handleGoogleSignIn}>Sign in with Google</Button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>

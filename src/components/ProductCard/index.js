@@ -102,13 +102,13 @@ const ProductCard = ({ }) => {
                     </div>
                     <ul className="nav product-size-menu" role="tablist">
                       <li className="tab__item nav-item active">
-                        <a className="nav-link active" data-toggle="tab" href="#tab_list_l" role="tab">L</a>
+                        <Link className="nav-link active" data-toggle="tab" href="#tab_list_l" role="tab">L</Link>
                       </li>
                       <li className="tab__item nav-item">
-                        <a className="nav-link" data-toggle="tab" href="#tab_list_m" role="tab">M</a>
+                        <Link className="nav-link" data-toggle="tab" href="#tab_list_m" role="tab">M</Link>
                       </li>
                       <li className="tab__item nav-item">
-                        <a className="nav-link" data-toggle="tab" href="#tab_list_s" role="tab">S</a>
+                        <Link className="nav-link" data-toggle="tab" href="#tab_list_s" role="tab">S</Link>
                       </li>
                     </ul>
                   </div>
@@ -124,10 +124,10 @@ const ProductCard = ({ }) => {
                     </div>
                     <ul className="nav product-color-menu" role="tablist">
                       <li className="tab__item nav-item active">
-                        <a className="nav-link active" data-toggle="tab" href="#tab_list_black" role="tab"></a>
+                        <Link className="nav-link active" data-toggle="tab" href="#tab_list_black" role="tab"></Link>
                       </li>
                       <li className="tab__item nav-item">
-                        <a className="nav-link" data-toggle="tab" href="#tab_list_white" role="tab"></a>
+                        <Link className="nav-link" data-toggle="tab" href="#tab_list_white" role="tab"></Link>
                       </li>
                     </ul>
                   </div>
@@ -142,10 +142,10 @@ const ProductCard = ({ }) => {
                       </div>
                       <div className="quickview-button">
                         <div className="quickview-cart button">
-                          <a href="product-details.html" className="btn--lg btn--black font-weight--reguler text-white" onClick={() => handleAddToCart(product)}>Add to cart</a>
+                          <Link href="product-details.html" className="btn--lg btn--black font-weight--reguler text-white" onClick={() => handleAddToCart(product)}>Add to cart</Link>
                         </div>
                         <div className="quickview-wishlist button">
-                          <a title="Add to wishlist" href="#"><i className="icon-heart"></i></a>
+                          <Link title="Add to wishlist"><i className="icon-heart"></i></Link>
                         </div>
                       </div>
                     </div>
@@ -156,29 +156,29 @@ const ProductCard = ({ }) => {
                       <span className="sku"> 502 </span>
                     </div>
                     <div className="posted_in item_meta">
-                      <span className="label">Categories: </span><a href="#">Furniture</a>, <a href="#">Table</a>
+                      <span className="label">Categories: </span><Link>Furniture</Link>, <Link>Table</Link>
                     </div>
                     <div className="tagged_as item_meta">
-                      <span className="label">Tag: </span><a href="#">Pottery</a>
+                      <span className="label">Tag: </span><Link>Pottery</Link>
                     </div>
                   </div>
                   <div className="product_socials section-space--mt_60">
                     <span className="label">Share this items :</span>
                     <ul className="helendo-social-share socials-inline">
                       <li>
-                        <a className="share-twitter helendo-twitter" href="#" target="_blank"><TwitterIcon /></a>
+                        <Link className="share-twitter helendo-twitter"><TwitterIcon /></Link>
                       </li>
                       <li>
-                        <a className="share-facebook helendo-facebook" href="#" target="_blank"><FacebookIcon /></a>
+                        <Link className="share-facebook helendo-facebook"><FacebookIcon /></Link>
                       </li>
                       <li>
-                        <a className="share-google-plus helendo-google-plus" href="#" target="_blank"><InstagramIcon /></a>
+                        <Link className="share-google-plus helendo-google-plus"><InstagramIcon /></Link>
                       </li>
                       <li>
-                        <a className="share-pinterest helendo-pinterest" href="#" target="_blank"><PinterestIcon /></a>
+                        <Link className="share-pinterest helendo-pinterest"><PinterestIcon /></Link>
                       </li>
                       <li>
-                        <a className="share-linkedin helendo-linkedin" href="#" target="_blank"><LinkedInIcon /></a>
+                        <Link className="share-linkedin helendo-linkedin"><LinkedInIcon /></Link>
                       </li>
                     </ul>
                   </div>
