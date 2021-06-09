@@ -50,7 +50,7 @@ const Footer = props => {
               </h6>
               <ul className="footer-widget__list">
                 <li>
-                  <Link to="/" className="hover-style-link">Help & Contact Us</Link>
+                  <Link to="/contact" className="hover-style-link">Help & Contact Us</Link>
                 </li>
                 <li>
                   <Link to="/" className="hover-style-link">Returns & Refunds</Link>
@@ -69,7 +69,7 @@ const Footer = props => {
               </h6>
               <ul className="footer-widget__list">
                 <li>
-                  <Link to="/" className="hover-style-link">About Us</Link>
+                  <Link to="/about_us" className="hover-style-link">About Us</Link>
                 </li>
                 <li>
                   <Link to="/" className="hover-style-link">Returns & Refunds</Link>

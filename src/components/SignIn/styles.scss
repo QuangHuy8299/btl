@@ -1,12 +1,54 @@
-.socialSignIn {
-  margin: 0.5rem auto 0;
-}
-.links{
-  display: block;
+.modal-box-wrapper, .myaccount-box-wrapper {
+  background: #fff;
   width: 100%;
-  margin: 1.5rem auto 0;
-  a {
-    color: black;
-    cursor: pointer;
-  }
+}
+
+.myaccount-box-wrapper .helendo-tabs ul {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.myaccount-box-wrapper .helendo-tabs ul .tab__item {
+  width: auto;
+  text-align: center;
+  font-size: 24px;
+  padding: 0 22px;
+}
+
+.modal-box-wrapper .helendo-tabs ul .tab__item, .myaccount-box-wrapper .helendo-tabs ul .tab__item {
+  width: 50%;
+  text-align: center;
+}
+
+.myaccount-box-wrapper .helendo-tabs ul .tab__item a.active {
+  background: transparent;
+  color: #000000;
+}
+
+.myaccount-box-wrapper .helendo-tabs ul .tab__item a {
+  color: #666;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 15px 0;
+  background-color: transparent;
+}
+
+.modal-box-wrapper .helendo-tabs ul .tab__item a.active, .myaccount-box-wrapper .helendo-tabs ul .tab__item a.active {
+  background: #fff;
+  color: #000000;
+}
+
+.modal-box-wrapper .helendo-tabs ul .tab__item a, .myaccount-box-wrapper .helendo-tabs ul .tab__item a {
+  color: #666;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 15px 0;
+  background-color: #ededed;
+}
+
+.nav-link {
+  display: block;
+  padding: .5rem 1rem;
 }
