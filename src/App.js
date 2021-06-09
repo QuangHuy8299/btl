@@ -36,6 +36,7 @@ import HomepageLayout from './layouts/HomepageLayout';
 import DashboardLayout from './layouts/DashBoardLayout';
 import AboutUS from './pages/AboutUs';
 import Contact from './components/Contact';
+import Blog from './components/Blog';
 
 const App = props => {
   const dispatch = useDispatch();
@@ -73,6 +74,11 @@ const App = props => {
         <Route exact path="/contact" render={() => (
           <MainLayout>
             <Contact />
+          </MainLayout>
+        )} />
+        <Route exact path="/blog" render={() => (
+          <MainLayout>
+            <Blog />
           </MainLayout>
         )} />
         <Route path="/product/:productID" render={() => (
