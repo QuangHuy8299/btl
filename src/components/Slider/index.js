@@ -11,6 +11,9 @@ const Sliders = props => {
     fade: true,
     speed: 500,
     slidesToShow: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
     slidesToScroll: 1
   }
   return (

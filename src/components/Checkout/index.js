@@ -18,109 +18,164 @@ const CheckOut = ({ }) => {
 
   const errMsg = 'Your have no items in your cart';
   return (
-    <div className="checkout">
-      <h1>
-        Checkout
-      </h1>
-
-      <div className="cart">
-        {cartItems.length > 0 ? (
-          <table border="0" cellPadding="0" cellSpacing="0">
-            <tbody>
-              <tr>
-                <td>
-                  <table className="checkoutHeader" border="0" cellPadding="10" cellSpacing="0">
-                    <tbody>
-                      <tr>
-                        <th>
-                          Product
-                        </th>
-                        <th>
-                          Description
-                        </th>
-                        <th>
-                          Quantity
-                        </th>
-                        <th>
-                          Price
-                        </th>
-                        <th>
-                          Remove
-                        </th>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <table border="0" cellSpacing="0" cellPadding="0">
-                    <tbody>
-                      {cartItems.map((item, pos) => {
-                        return (
-                          <tr key={pos}>
-                            <td>
-                              <Item {...item} />
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <table border="0" cellSpacing="0" cellPadding="0">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <table border="0" cellPadding="10" cellSpacing="0">
-                            <tbody>
-                              <tr>
-                                <td>
-                                <h3>
-                                  Total: £{total}
-                                </h3>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <table border="0" cellPadding="10" cellSpacing="0">
-                            <tbody>
-                              <tr>
-                                <td>
-                                  <Button onClick={() => history.goBack()}>
-                                    Continue Shopping
-                                  </Button>
-                                </td>
-                                <td>
-                                  <Button onClick={() => history.push('/payment')}>
-                                    Checkout
-                                  </Button>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        ) : (
-            <p>
-              {errMsg}
-            </p>
-          )}
+    <div className="cart-main-area  section-space--ptb_90">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <form action="#">
+              <div className="table-content table-responsive cart-table-content header-color-gray">
+                <table>
+                  <thead>
+                    <tr className="bg-gray">
+                      <th></th>
+                      <th></th>
+                      <th className="product-name">Product</th>
+                      <th className="product-price"> Price</th>
+                      <th>Quantity</th>
+                      <th>Total</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cartItems.map((item, pos) => {
+                      return (
+                        <Item {...item} key={pos} />
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </form>
+            <div className="shoping-update-area row">
+              <div className="continue-shopping-butotn col-6 mt-30">
+                <a className="btn btn--lg btn--black" style={{ color: 'white' }} onClick={() => history.goBack()}><i className="icon-arrow-left"></i> Continue Shopping </a>
+              </div>
+              <div className="update-cart-button col-6 text-right mt-30">
+                <a className="btn btn--lg btn--border_1">Update cart</a>
+              </div>
+            </div>
+            <div className="cart-buttom-area">
+              <div className="row">
+                <div className="col-lg-6">
+                  <div className="discount-code section-space--mt_60">
+                    <h6 className="mb-30">Coupon Discount</h6>
+                    <p>Enter your coupon code if you have one.</p>
+                    <input type="text" name="name" placeholder="Coupon code" />
+                    <button className="coupon-btn btn btn--lg btn--border_1" type="submit">Apply coupon</button>
+                  </div>
+                </div>
+                <div className="col-lg-6">
+                  <div className="cart_totals section-space--mt_60 ml-md-auto">
+                    <div className="grand-total-wrap">
+                      <div className="grand-total-content">
+                        <ul>
+                          <li>Subtotal <span>£{total}</span></li>
+                          <li>Total <span>£{total}</span> </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div className="grand-btn mt-30">
+                      <a className="btn--black btn--full text-center btn--lg" style={{ color: 'white' }} onClick={() => history.push('/payment')}>Proceed to checkout</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    //<div className="checkout">
+    //  <div className="cart">
+    //    {cartItems.length > 0 ? (
+    //      <table border="0" cellPadding="0" cellSpacing="0">
+    //        <tbody>
+    //          <tr>
+    //            <td>
+    //              <table className="checkoutHeader" border="0" cellPadding="10" cellSpacing="0">
+    //                <tbody>
+    //                  <tr>
+    //                    <th>
+    //                      Product
+    //                    </th>
+    //                    <th>
+    //                      Description
+    //                    </th>
+    //                    <th>
+    //                      Quantity
+    //                    </th>
+    //                    <th>
+    //                      Price
+    //                    </th>
+    //                    <th>
+    //                      Remove
+    //                    </th>
+    //                  </tr>
+    //                </tbody>
+    //              </table>
+    //            </td>
+    //          </tr>
+    //          <tr>
+    //            <td>
+    //              <table border="0" cellSpacing="0" cellPadding="0">
+    //                <tbody>
+
+    //                </tbody>
+    //              </table>
+    //            </td>
+    //          </tr>
+    //          <tr>
+    //            <td>
+    //              <table border="0" cellSpacing="0" cellPadding="0">
+    //                <tbody>
+    //                  <tr>
+    //                    <td>
+    //                      <table border="0" cellPadding="10" cellSpacing="0">
+    //                        <tbody>
+    //                          <tr>
+    //                            <td>
+    //                            <h3>
+    //                              Total: £{total}
+    //                            </h3>
+    //                            </td>
+    //                          </tr>
+    //                        </tbody>
+    //                      </table>
+    //                    </td>
+    //                  </tr>
+    //                  <tr>
+    //                    <td>
+    //                      <table border="0" cellPadding="10" cellSpacing="0">
+    //                        <tbody>
+    //                          <tr>
+    //                            <td>
+    //                              <Button onClick={() => history.goBack()}>
+    //                                Continue Shopping
+    //                              </Button>
+    //                            </td>
+    //                            <td>
+    //                              <Button onClick={() => history.push('/payment')}>
+    //                                Checkout
+    //                              </Button>
+    //                            </td>
+    //                          </tr>
+    //                        </tbody>
+    //                      </table>
+    //                    </td>
+    //                  </tr>
+    //                </tbody>
+    //              </table>
+    //            </td>
+    //          </tr>
+    //        </tbody>
+    //      </table>
+    //    ) : (
+    //        <p>
+    //          {errMsg}
+    //        </p>
+    //      )}
+    //  </div>
+    //</div>
   );
 };
 
