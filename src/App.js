@@ -37,6 +37,7 @@ import DashboardLayout from './layouts/DashBoardLayout';
 import AboutUS from './pages/AboutUs';
 import Contact from './components/Contact';
 import Blog from './components/Blog';
+import WishList from './pages/WishList';
 
 const App = props => {
   const dispatch = useDispatch();
@@ -89,6 +90,11 @@ const App = props => {
         <Route path="/cart" render={() => (
           <MainLayout>
             <Cart />
+          </MainLayout>
+        )} />
+        <Route path="/wishList" render={() => (
+          <MainLayout>
+            <WishList />
           </MainLayout>
         )} />
         <Route path="/payment" render={() => (

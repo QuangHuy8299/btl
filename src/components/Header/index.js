@@ -2,20 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItemsCount } from './../../redux/Cart/cart.selector';
+import { selectWishListItemsCount } from './../../redux/WishList/wishList.selector';
 import './styles.scss';
 import Logo from './../../Asset/logo.jpg';
+import AdminToolbar from '../AdminToolBar';
 
 const mapState = (state) => ({
   currentUser: state.user.currentUser,
-  totalNumCartItems: selectCartItemsCount(state)
+  totalNumCartItems: selectCartItemsCount(state),
+  totalNumWishListItems: selectWishListItemsCount(state)
 })
 
 const Header = props => {
-  const { currentUser, totalNumCartItems } = useSelector(mapState);
+  const { currentUser, totalNumCartItems, totalNumWishListItems } = useSelector(mapState);
   const dispatch = useDispatch();
-  
+
   return [
     <header className="header-area header_absolute header_height-90 header-sticky is-sticky">
+      <AdminToolbar />
       <div className="container-fluid container-fluid--cp-100">
         <div className="row align-items-center">
           <div className="col-lg-3 col-lg-3 col-6">
@@ -70,7 +74,7 @@ const Header = props => {
               <div className="header-right-items d-none d-md-block">
                 <Link to="/wishList" className="header-cart">
                   <i className="icon-heart"></i>
-                  <span className="item-counter">3</span>
+                  <span className="item-counter">{totalNumWishListItems}</span>
                 </Link>
               </div>
               <div className="header-right-items">

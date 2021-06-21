@@ -7,6 +7,7 @@ import productsReducer from './Products/products.reducer';
 import cartReducer from './Cart/cart.reducer';
 import ordersReducer from './Orders/orders.reducer';
 import categoriesReducer from './Categories/categories.reducer';
+import wishListReducer from './WishList/wishList.reducer';
 
 export const rootReducer = combineReducers({
   user: userReducer,
@@ -14,12 +15,13 @@ export const rootReducer = combineReducers({
   cartData: cartReducer,
   ordersData: ordersReducer,
   categoriesData: categoriesReducer,
+  wishListData: wishListReducer
 });
 
 const configStorage = {
   key: 'root',
   storage,
-  whitelist: ['cartData']
+  whitelist: ['cartData', 'wishListData']
 };
 
 export default persistReducer(configStorage, rootReducer);
