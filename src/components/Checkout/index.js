@@ -16,7 +16,7 @@ const CheckOut = ({ }) => {
   const history = useHistory();
   const { cartItems, total } = useSelector(mapState);
 
-  const errMsg = 'Your have no items in your cart';
+  const errMsg = 'You have no items in your cart';
   return (
     <div className="cart-main-area  section-space--ptb_90">
       <div className="container">
@@ -24,26 +24,30 @@ const CheckOut = ({ }) => {
           <div className="col-lg-12">
             <form action="#">
               <div className="table-content table-responsive cart-table-content header-color-gray">
-                <table>
-                  <thead>
-                    <tr className="bg-gray">
-                      <th></th>
-                      <th></th>
-                      <th className="product-name">Product</th>
-                      <th className="product-price"> Price</th>
-                      <th>Quantity</th>
-                      <th>Total</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {cartItems.map((item, pos) => {
-                      return (
-                        <Item {...item} key={pos} />
-                      );
-                    })}
-                  </tbody>
-                </table>
+                {cartItems.length > 0 ? (
+                  <table>
+                    <thead>
+                      <tr className="bg-gray">
+                        <th></th>
+                        <th></th>
+                        <th className="product-name">Product</th>
+                        <th className="product-price"> Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {cartItems.map((item, pos) => {
+                        return (
+                          <Item {...item} key={pos} />
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                ) : (<p>
+                  {errMsg}
+                </p>)}
               </div>
             </form>
             <div className="shoping-update-area row">
@@ -85,97 +89,6 @@ const CheckOut = ({ }) => {
         </div>
       </div>
     </div>
-    //<div className="checkout">
-    //  <div className="cart">
-    //    {cartItems.length > 0 ? (
-    //      <table border="0" cellPadding="0" cellSpacing="0">
-    //        <tbody>
-    //          <tr>
-    //            <td>
-    //              <table className="checkoutHeader" border="0" cellPadding="10" cellSpacing="0">
-    //                <tbody>
-    //                  <tr>
-    //                    <th>
-    //                      Product
-    //                    </th>
-    //                    <th>
-    //                      Description
-    //                    </th>
-    //                    <th>
-    //                      Quantity
-    //                    </th>
-    //                    <th>
-    //                      Price
-    //                    </th>
-    //                    <th>
-    //                      Remove
-    //                    </th>
-    //                  </tr>
-    //                </tbody>
-    //              </table>
-    //            </td>
-    //          </tr>
-    //          <tr>
-    //            <td>
-    //              <table border="0" cellSpacing="0" cellPadding="0">
-    //                <tbody>
-
-    //                </tbody>
-    //              </table>
-    //            </td>
-    //          </tr>
-    //          <tr>
-    //            <td>
-    //              <table border="0" cellSpacing="0" cellPadding="0">
-    //                <tbody>
-    //                  <tr>
-    //                    <td>
-    //                      <table border="0" cellPadding="10" cellSpacing="0">
-    //                        <tbody>
-    //                          <tr>
-    //                            <td>
-    //                            <h3>
-    //                              Total: £{total}
-    //                            </h3>
-    //                            </td>
-    //                          </tr>
-    //                        </tbody>
-    //                      </table>
-    //                    </td>
-    //                  </tr>
-    //                  <tr>
-    //                    <td>
-    //                      <table border="0" cellPadding="10" cellSpacing="0">
-    //                        <tbody>
-    //                          <tr>
-    //                            <td>
-    //                              <Button onClick={() => history.goBack()}>
-    //                                Continue Shopping
-    //                              </Button>
-    //                            </td>
-    //                            <td>
-    //                              <Button onClick={() => history.push('/payment')}>
-    //                                Checkout
-    //                              </Button>
-    //                            </td>
-    //                          </tr>
-    //                        </tbody>
-    //                      </table>
-    //                    </td>
-    //                  </tr>
-    //                </tbody>
-    //              </table>
-    //            </td>
-    //          </tr>
-    //        </tbody>
-    //      </table>
-    //    ) : (
-    //        <p>
-    //          {errMsg}
-    //        </p>
-    //      )}
-    //  </div>
-    //</div>
   );
 };
 

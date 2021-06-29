@@ -140,7 +140,7 @@ const PaymentDetails = () => {
   };
 
   return (
-    <div className="paymentDetails">
+    <div className="paymentDetails" style={{paddingTop: '160px'}}>
       <form onSubmit={handleFormSubmit}>
 
         <div className="group">

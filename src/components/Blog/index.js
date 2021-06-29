@@ -42,11 +42,11 @@ const Blog = props => {
                     <div className="single-blog-item section-space--mb_60">
                       <div className="blog-thumbnail-box">
                         <Link className="thumbnail">
-                          <img src={BlogImg} className="img-fluid" />
+                          <img src={BlogImg} className="img-fluid" aly=""/>
                         </Link>
                       </div>
                       <div className="blog-contents">
-                        <h3 className="blog-title-lg"><a>Interior design is the art, the interior designer is the artist.</a></h3>
+                        <h3 className="blog-title-lg"><Link to="/">Interior design is the art, the interior designer is the artist.</Link></h3>
                         <div className="meta-tag-box">
                           <div className="meta date"><span>October 16, 2020</span></div>
                           <div className="meta author"><span><Link>Hastheme</Link></span></div>
@@ -94,14 +94,14 @@ const Blog = props => {
                 <div className="blog-widget widget-blog-tag mt-40">
                   <h6 className="mb-20">Tags</h6>
                   <div className="blog-tagcloud">
-                    <Link className="selected">All</Link>
-                    <Link className="">Accesssories</Link><a className="">Box</a>
-                    <Link className="">chair</Link>
-                    <Link className="">Deco</Link>
-                    <Link className="">Furniture</Link>
-                    <Link className="">Glass</Link>
-                    <Link className="">Pottery</Link>
-                    <Link className="">Table</Link>
+                    <Link to="" className="selected">All</Link>
+                    <Link to="" className="">Accesssories</Link><a className="">Box</a>
+                    <Link to="" className="">chair</Link>
+                    <Link to="" className="">Deco</Link>
+                    <Link to="" className="">Furniture</Link>
+                    <Link to="" className="">Glass</Link>
+                    <Link to="" className="">Pottery</Link>
+                    <Link to="" className="">Table</Link>
                   </div>
                 </div>
               </div>

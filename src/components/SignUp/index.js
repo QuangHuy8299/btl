@@ -116,7 +116,7 @@ const Signup = props => {
                           <FormInput type="text" placeholder="Full Name" value={displayName} handleChange={e => setDisplayName(e.target.value)} />
                         </div>
                         <div className="single-input">
-                          <FormInput type="text" placeholder="Email" value={displayName} handleChange={e => setEmail(e.target.value)} />
+                          <FormInput type="text" placeholder="Email" value={email} handleChange={e => setEmail(e.target.value)} />
                         </div>
                         <div className="single-input">
                           <FormInput type="password" placeholder="Password" value={password} handleChange={e => setPassword(e.target.value)} />
