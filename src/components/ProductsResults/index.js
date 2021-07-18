@@ -148,42 +148,6 @@ const ProductResults = ({ }) => {
                     </ul>
                   </div>
                 </div>
-                <div className="shop-widget">
-                  <div className="product-filter widget-price">
-                    <h6 className="mb-20">
-                      Price
-                    </h6>
-                    <ul className="widget-nav-list">
-                      <li>
-                        <Link to="/">$0.00 - $20.00</Link>
-                      </li>
-                      <li>
-                        <Link to="/">$20.00 - $40.00</Link>
-                      </li>
-                      <li>
-                        <Link to="/">£40.00 - £50.00</Link>
-                      </li>
-                      <li>
-                        <Link to="/">£50.00 - £60.00</Link>
-                      </li>
-                      <li>
-                        <Link to="/">£60.00 +</Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="shop-widget">
-                  <div className="product-filter">
-                    <h6 className="mb-20">
-                      Tags
-                    </h6>
-                    <div className="tagcloud">
-                      <Link to="/">All</Link>
-                      <Link to="/">Mens</Link>
-                      <Link to="/">Womens</Link>
-                    </div>
-                  </div>
-                </div>
               </div>
               <div className="col-lg-9 col-md-9  order-md-2 order-1">
                 <div className="row">
