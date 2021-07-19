@@ -12,10 +12,15 @@ const AdminToolbar = props => {
   const { currentUser } = useSelector(mapState)
 
   const isAdmin = checkUserIsAdmin(currentUser);
-  if(!isAdmin) return null;
+  if (!isAdmin) return null;
   return (
     <div className="adminToolbar">
       <ul>
+        <li>
+          <Link to="/">
+            Home
+          </Link>
+        </li>
         <li>
           <Link to="/admin">
             My Admin
