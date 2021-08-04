@@ -137,6 +137,7 @@ const ProductAdmin = props => {
                         />
 
                         <FormInput
+                          style={{width: "100%"}}
                           label="Name"
                           type="text"
                           value={productName}
@@ -145,6 +146,7 @@ const ProductAdmin = props => {
 
                         <FormInput
                           label="Main image URL"
+                          style={{width: "100%"}}
                           type="url"
                           value={productThumbnail}
                           handleChange={e => setProductThumbnail(e.target.value)}
@@ -152,6 +154,7 @@ const ProductAdmin = props => {
 
                         <FormInput
                           label="Price"
+                          style={{width: "100%"}}
                           type="number"
                           min="0.00"
                           max="10000.00"
@@ -160,7 +163,7 @@ const ProductAdmin = props => {
                           handleChange={e => setProductPrice(e.target.value)}
                         />
                         <br />
-
+                        <label>Description</label>
                         <CKEditor
                           onChange={evt => setProductDesc(evt.editor.getData())}
                         />
