@@ -58,6 +58,7 @@ const CheckOut = ({ }) => {
                 <a className="btn btn--lg btn--border_1">Update cart</a>
               </div>
             </div>
+            <h1>huy</h1>
             <div className="cart-buttom-area">
               <div className="row">
                 <div className="col-lg-6">
